@@ -1,4 +1,5 @@
-// ✅ Correct
+import Script from 'next/script';
+
 export default function RootLayout({ children }) {
   return (
     <html>
@@ -17,9 +18,10 @@ export default function RootLayout({ children }) {
         />
 
       </head>
-      <body>{children}
-        <script src="https://cdn.jsdelivr.net/npm/apexcharts" strategy="afterInteractive"></script>
-        {/* <script src="/main.js" strategy="lazyOnload"></script> */}
+      <body>
+        {children}
+        <Script src="https://cdn.jsdelivr.net/npm/apexcharts" strategy="afterInteractive" />
+        <Script src="/main.js" strategy="lazyOnload" />
       </body>
     </html>
   );

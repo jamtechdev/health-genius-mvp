@@ -15,14 +15,8 @@ export default function SignIn() {
             alert(result.message);
             return;
         }
-        console.log(result, '===============')
         localStorage.setItem('user', JSON.stringify(result.user));
-        console.log(localStorage.getItem('user'))
-        if (result.user.role === 'admin') {
-            router.push('/dashboard');
-        } else {
-            router.push('/dashboard');
-        }
+        router.push('/dashboard');
     };
     return (
         <div className="min-h-screen flex items-center justify-center relative">

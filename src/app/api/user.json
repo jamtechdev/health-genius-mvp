@@ -1,0 +1,193 @@
+[
+  {
+    "id": "julie",
+    "name": "Julie",
+    "age": 28,
+    "gender": "female",
+    "type": "B2C",
+    "description": "Stressed executive",
+    "wellbeingScore": 68,
+    "summary": {
+      "lifestyle": "High stress, long hours",
+      "sleep": "5–6 hours, irregular",
+      "habits": "Skips breakfast, coffee-heavy"
+    },
+    "recommendations": {
+      "nutrition": "Start mornings with a high-protein breakfast.",
+      "sleep": "Aim for at least 7 hours of consistent sleep.",
+      "activity": "Incorporate a 10-minute walk during breaks."
+    },
+    "devices": {
+      "heartRate": "85 bpm",
+      "sleep": "5h 10min (Poor)",
+      "steps": "3,200 steps",
+      "energy": "Low"
+    },
+    "dnaTraits": [
+      { "trait": "Stress Response", "value": "Elevated" },
+      { "trait": "Caffeine Sensitivity", "value": "High" },
+      { "trait": "Sleep Rhythm", "value": "Irregular" }
+    ]
+  },
+  {
+    "id": "karim",
+    "name": "Karim",
+    "age": 45,
+    "gender": "male",
+    "type": "B2C",
+    "description": "Irregular lifestyle",
+    "wellbeingScore": 74,
+    "summary": {
+      "lifestyle": "Frequent traveler, unstructured routine",
+      "sleep": "Varies by day",
+      "habits": "Late meals, occasional workouts"
+    },
+    "recommendations": {
+      "nutrition": "Avoid heavy meals before bedtime.",
+      "sleep": "Create a wind-down routine before sleep.",
+      "activity": "Stretch for 5 minutes after long travel."
+    },
+    "devices": {
+      "heartRate": "78 bpm",
+      "sleep": "6h 20min (Fair)",
+      "steps": "5,600 steps",
+      "energy": "Moderate"
+    },
+    "dnaTraits": [
+      { "trait": "Fat Metabolism", "value": "Normal" },
+      { "trait": "Jet Lag Sensitivity", "value": "High" },
+      { "trait": "Stress Resilience", "value": "Average" }
+    ]
+  },
+  {
+    "id": "marie",
+    "name": "Marie",
+    "age": 68,
+    "gender": "female",
+    "type": "B2C",
+    "description": "Active senior",
+    "wellbeingScore": 91,
+    "summary": {
+      "lifestyle": "Retired, active community member",
+      "sleep": "Consistent bedtime, restful",
+      "habits": "Morning walks, balanced meals"
+    },
+    "recommendations": {
+      "nutrition": "Continue Mediterranean-style diet.",
+      "sleep": "Keep consistent bedtime routine.",
+      "activity": "Join light yoga or tai chi group."
+    },
+    "devices": {
+      "heartRate": "70 bpm",
+      "sleep": "7h 40min (Good)",
+      "steps": "6,800 steps",
+      "energy": "High"
+    },
+    "dnaTraits": [
+      { "trait": "Bone Density", "value": "Good" },
+      { "trait": "Sleep Quality", "value": "Excellent" },
+      { "trait": "Inflammation Response", "value": "Low" }
+    ]
+  },
+  {
+    "id": "lucas",
+    "name": "Lucas",
+    "age": 36,
+    "gender": "male",
+    "type": "B2B",
+    "description": "Corporate wellness contract",
+    "wellbeingScore": 83,
+    "summary": {
+      "lifestyle": "Desk job, wellness benefits",
+      "sleep": "6–7 hours, decent quality",
+      "habits": "Cycling to work, gym twice a week"
+    },
+    "recommendations": {
+      "nutrition": "Increase veggie intake at lunch.",
+      "sleep": "Reduce screen time 1h before bed.",
+      "activity": "Add stretching between meetings."
+    },
+    "devices": {
+      "heartRate": "75 bpm",
+      "sleep": "6h 55min (Fair)",
+      "steps": "7,100 steps",
+      "energy": "Moderate-High"
+    },
+    "dnaTraits": [
+      { "trait": "Muscle Recovery", "value": "Fast" },
+      { "trait": "Focus Tendency", "value": "Stable" },
+      { "trait": "Caffeine Tolerance", "value": "Moderate" }
+    ],
+    "b2bDashboard": {
+      "avgScore": 83,
+      "energyDistribution": {
+        "low": 10,
+        "moderate": 55,
+        "high": 35
+      },
+      "recommendationCompliance": "78%"
+    }
+  },
+  {
+    "id": "emma",
+    "name": "Emma",
+    "age": 40,
+    "gender": "female",
+    "type": "B2B",
+    "description": "Insurance client",
+    "wellbeingScore": 76,
+    "summary": {
+      "lifestyle": "Working mom, moderate activity",
+      "sleep": "Interrupted, 6h average",
+      "habits": "Balanced meals, low hydration"
+    },
+    "recommendations": {
+      "nutrition": "Drink more water during the day.",
+      "sleep": "Try 10-minute naps when tired.",
+      "activity": "Walk after lunch daily."
+    },
+    "devices": {
+      "heartRate": "82 bpm",
+      "sleep": "6h 05min (Fair)",
+      "steps": "5,200 steps",
+      "energy": "Moderate"
+    },
+    "dnaTraits": [
+      { "trait": "Hydration Need", "value": "High" },
+      { "trait": "Sleep Disruption", "value": "Likely" },
+      { "trait": "Nutrient Absorption", "value": "Efficient" }
+    ],
+    "b2bDashboard": {
+      "avgScore": 76,
+      "energyDistribution": {
+        "low": 20,
+        "moderate": 60,
+        "high": 20
+      },
+      "recommendationCompliance": "65%"
+    }
+  },
+  {
+    "id": "admin",
+    "name": "Admin",
+    "role": "admin",
+    "type": "admin",
+    "description": "Admin user responsible for usage analytics and monitoring",
+    "usageStats": {
+      "sessionsPerProfile": {
+        "julie": 24,
+        "karim": 17,
+        "marie": 32,
+        "lucas": 21,
+        "emma": 18
+      },
+      "averageSessionDuration": "5m 12s",
+      "mostViewedSections": [
+        "Well-being Score",
+        "Recommendations",
+        "Connected Devices"
+      ]
+    },
+    "disclaimer": "100% simulated data"
+  }
+]

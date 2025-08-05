@@ -1,5 +1,7 @@
 "use client";
 
+import { Link } from "@/i18n/navigation";
+
 export default function Navbar() {
 
     return (
@@ -9,11 +11,11 @@ export default function Navbar() {
                 <div
                     className="flex items-center justify-between lg:px-6 px-4 lg:py-0 py-2">
                     <div className="flex items-center gap-4">
-                        <a href="#">
+                        <Link href="/dashboard">
                             <img src="/images/logo.png"
                                 alt="Health Genius Logo"
                                 className="md:max-w-[145px] max-w-[120px] p-1" />
-                        </a>
+                        </Link>
                         <ul
                             className="lg:hidden items-center flex-1 hidden">
                             <li>

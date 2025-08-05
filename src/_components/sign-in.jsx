@@ -1,7 +1,29 @@
 "use client";
+import { useForm } from 'react-hook-form';
+import { useRouter } from "@/i18n/navigation";
 
 export default function SignIn() {
-
+    const router = useRouter();
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = async (data) => {
+        const res = await fetch('/api/login', {
+            method: 'POST',
+            body: JSON.stringify(data),
+        });
+        const result = await res.json();
+        if (!res.ok) {
+            alert(result.message);
+            return;
+        }
+        console.log(result, '===============')
+        localStorage.setItem('user', JSON.stringify(result.user));
+        console.log(localStorage.getItem('user'))
+        if (result.user.role === 'admin') {
+            router.push('/dashboard');
+        } else {
+            router.push('/dashboard');
+        }
+    };
     return (
         <div className="min-h-screen flex items-center justify-center relative">
             <video
@@ -33,10 +55,11 @@ export default function SignIn() {
                     </div>
 
                     {/* <!-- Form --> */}
-                    <form className="space-y-4">
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                         <div>
                             <label className="block text-white mb-1">Email</label>
                             <input
+                                {...register('email', { required: 'Email is required' })}
                                 type="email"
                                 placeholder="Enter your email"
                                 className="w-full px-4 py-3 bg-[#001b31] border border-[#001b31] text-white placeholder-gray-400 text-base outline-none focus:border-[#00f6ff] border-[#0098c0]" />
@@ -45,6 +68,7 @@ export default function SignIn() {
                         <div>
                             <label className="block text-white mb-1">Password</label>
                             <input
+                                {...register('password', { required: 'Password is required' })}
                                 type="password"
                                 placeholder="Enter your password"
                                 className="w-full px-4 py-3 bg-[#001b31] border border-[#001b31] text-white placeholder-gray-400 text-base outline-none focus:border-[#00f6ff] border-[#0098c0]" />
@@ -57,11 +81,11 @@ export default function SignIn() {
                         </div>
 
                         <div>
-                            <a
-                                href="/profile.html"
+                            <button
+                                type="submit"
                                 className="w-full bg-[#0098c0] text-white py-3 px-6 font-semibold hover:bg-[#00f6ff] hover:text-[#000000] transition-all duration-500 flex items-center justify-center gap-2 icon-box">
                                 Continue <i className="ph ph-arrow-right text-lg"></i>
-                            </a>
+                            </button>
                         </div>
                     </form>
 

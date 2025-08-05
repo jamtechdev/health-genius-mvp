@@ -1,16 +1,13 @@
-
 import { NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 
-
 const routing = {
-    locales: ['en', 'fr',],
-    defaultLocale: 'en',
+    locales: ['en', 'fr'],
+    defaultLocale: 'en'
 };
 
-// Setup next-intl middleware
 const intlMiddleware = createMiddleware(routing, {
-    localeDetection: false,
+    localeDetection: false
 });
 
 export function middleware(request) {
@@ -19,44 +16,45 @@ export function middleware(request) {
     const maybeLocale = pathSegments[1]?.toLowerCase();
     const isLocaleValid = routing.locales.includes(maybeLocale);
 
-    // ✅ Redirect `/` to default locale
+    // Redirect `/` to `/en` or default
     if (pathname === '/') {
         return NextResponse.redirect(new URL(`/${routing.defaultLocale}`, request.url));
     }
 
-    // ✅ Allow static files & assets to pass through
+    // Let static assets through
     if (!isLocaleValid) {
         const isStaticAsset =
             pathname.startsWith('/_next') ||
             pathname.startsWith('/icons') ||
-            pathname.includes('.') || // files like .png, .ico, .js etc
+            pathname.includes('.') ||
             pathname === '/favicon.ico';
 
         if (isStaticAsset) {
             return NextResponse.next();
         }
 
-        // Rewrite to not-found under default locale
         return NextResponse.rewrite(new URL(`/${routing.defaultLocale}/not-found`, request.url));
     }
-    // ✅ Proceed with intl middleware for valid locales
-    const response = intlMiddleware(request);
-    const protectedPaths = [ '/profile',];
-    const isProtected = protectedPaths.some(path =>
+
+    // 🍪 Get auth cookie
+    const token = request.cookies.get('auth_token')?.value || null;
+
+    // Protect specific pages
+    const protectedPaths = ['/dashboard', '/profile'];
+    const isProtected = protectedPaths?.some((path) =>
         pathname.startsWith(`/${maybeLocale}${path}`)
     );
-
-    // const token = request.cookies.get(SHORT_TERM_COOKIES.accesser)?.value || null;
-    const token = '';
-
+    if (pathname.startsWith(`/${maybeLocale}/sign-in`) && token) {
+        return NextResponse.redirect(new URL(`/${maybeLocale}/dashboard`, request.url));
+    }
     if (isProtected && !token) {
+        // Not logged in → redirect to locale root (e.g., /en)
         return NextResponse.redirect(new URL(`/${maybeLocale}`, request.url));
     }
 
-    return response;
+    return intlMiddleware(request);
 }
 
-// ✅ Middleware matcher: apply only to non-static paths
 export const config = {
-    matcher: ['/((?!api|_next|static|icons|.*\\..*).*)'],
+    matcher: ['/((?!api|_next|static|icons|.*\\..*).*)']
 };

@@ -41,7 +41,7 @@ export function middleware(request) {
     }
     // ✅ Proceed with intl middleware for valid locales
     const response = intlMiddleware(request);
-    const protectedPaths = ['/my',];
+    const protectedPaths = [ '/profile',];
     const isProtected = protectedPaths.some(path =>
         pathname.startsWith(`/${maybeLocale}${path}`)
     );

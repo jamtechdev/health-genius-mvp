@@ -1,0 +1,30 @@
+{
+  "language": "Langue",
+  "languages": {
+    "en": "Anglais",
+    "fr": "Français"
+  },
+  "meta": {
+    "home": {
+      "title": "Génie de la santé",
+      "generator": "Génie de la santé",
+      "applicationName": "Génie de la santé",
+      "keywords1": "comparer",
+      "keywords2": "produit",
+      "description": "Votre assistant santé personnalisé.",
+      "ogType": "FRONTUM",
+      "language": "fr"
+    },
+    "signUp": {
+      "title": "Génie de la santé",
+      "generator": "Génie de la santé",
+      "applicationName": "Génie de la santé",
+      "keywords1": "comparer",
+      "keywords2": "produit",
+      "description": "Votre assistant santé personnalisé.",
+      "ogType": "FRONTUM",
+      "language": "fr"
+    }
+  },
+  "welcomeBack": "Content de te revoir"
+}

@@ -1,0 +1,30 @@
+{
+  "language": "Language",
+  "languages": {
+    "en": "English",
+    "fr": "French"
+  },
+  "meta": {
+    "home": {
+      "title": "Health Genius",
+      "generator": "Health Genius",
+      "applicationName": "Health Genius",
+      "keywords1": "compare",
+      "keywords2": "product",
+      "description": "Your personalized health assistant.",
+      "ogType": "FRONTUM",
+      "language": "en"
+    },
+    "signUp": {
+      "title": "Health Genius MVP",
+      "generator": "Health Genius",
+      "applicationName": "Health Genius",
+      "keywords1": "compare",
+      "keywords2": "product",
+      "description": "Your personalized health assistant. signup",
+      "ogType": "FRONTUM",
+      "language": "en"
+    }
+  },
+  "welcomeBack": "Welcome back!"
+}

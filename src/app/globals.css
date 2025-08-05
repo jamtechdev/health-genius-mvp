@@ -1,26 +1,92 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css");
+@import url("https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css");
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-color: #0098c0;
+  --secondary-color: #001b31;
+  --tertiary-color: #00f6ff;
+  --gray-color: #9e9e9e;
+  --white: #ffffff;
+  --black: #000000;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Exo 2", sans-serif;
+  background: #001323;
+  color: #ffffff;
 }
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card {
+  clip-path: polygon(
+    30px 0%,
+    100% 0,
+    100% calc(100% - 30px),
+    calc(100% - 30px) 100%,
+    0 100%,
+    0% 30px
+  );
+  padding: 32px;
+  border-radius: 0 !important;
+  background: rgb(1 34 62 / 80%) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid transparent !important;
+  position: relative !important;
+  color: var(--white) !important;
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.7), 0 0 40px rgba(0, 200, 255, 0.6),
+    0 0 80px rgba(0, 200, 255, 0.5), inset 0 0 30px rgba(0, 200, 255, 0.4);
+}
+
+.card::before {
+  content: "";
+  height: 1px;
+  width: 43px;
+  background: var(--tertiary-color);
+  position: absolute;
+  top: 14px;
+  left: -7px;
+  transform: rotate(-45deg);
+  z-index: 1;
+}
+
+.card::after {
+  content: "";
+  height: 1px;
+  width: 43px;
+  background: var(--tertiary-color);
+  position: absolute;
+  bottom: 14px;
+  right: -7px;
+  transform: rotate(135deg);
+   z-index: 1;
+}
+
+.icon-box {
+  clip-path: polygon(
+    12px 0%,
+    100% 0,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    0 100%,
+    0% 12px
+  );
+}
+
+

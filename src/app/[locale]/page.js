@@ -31,7 +31,7 @@ export default function Home() {
             <LayoutManager includeAuthLayout={false}>
                 <SignIn />
             </LayoutManager>
-            
+
         </>
     );
 }

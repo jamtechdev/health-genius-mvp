@@ -29,10 +29,10 @@ export default function Navbar() {
         const url = queryString ? `${newPathname}?${queryString}` : newPathname;
         router.push(url);
     };
-    // function logout(){
-    //     localStorage.removeItem('user');
-    //     router.push(`${locale}/sign-in`);
-    // }
+    async function logout() {
+        await fetch('/api/login', { method: 'GET' });
+        window.location.href = `/${locale}/sign-in`;
+    }
 
     return (
         <>
@@ -41,7 +41,7 @@ export default function Navbar() {
                 <div
                     className="flex items-center justify-between lg:px-6 px-4 lg:py-0 py-2">
                     <div className="flex items-center gap-4">
-                        <Link href="/dashboard">
+                        <Link href="/profile">
                             <img src="/images/logo.png"
                                 alt="Health Genius Logo"
                                 className="md:max-w-[145px] max-w-[120px] p-1" />
@@ -118,7 +118,7 @@ export default function Navbar() {
                                 </div>
                             </div>
                         </div>
-                        <button className="text-[#ffffff] bg-[#ca2a30] text-xl py-[6px] px-[10px] cursor-pointe icon-box">
+                        <button onClick={logout} className="text-[#ffffff] bg-[#ca2a30] text-xl py-[6px] px-[10px] cursor-pointer icon-box">
                            <i className="ph-fill ph-sign-out"></i>
                         </button>
                     </div>

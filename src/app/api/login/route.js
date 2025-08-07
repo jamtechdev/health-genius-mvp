@@ -55,8 +55,18 @@ export async function POST(request) {
 
     return response;
 }
+
 export async function GET(request) {
-    const response = NextResponse.redirect(new URL('/', request.url));
-    response.cookies.set('auth_token', '', { maxAge: 0 });
+    const locale = request.nextUrl.locale || 'en';
+    const response = new NextResponse(null, {
+        status: 302,
+        headers: {
+            Location: `/${locale}/sign-in`,
+        },
+    });
+    response.cookies.set('auth_token', '', {
+        path: '/',
+        expires: new Date(0),
+    });
     return response;
 }

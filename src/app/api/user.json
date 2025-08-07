@@ -4,6 +4,7 @@
     "name": "Julie",
     "age": 28,
     "gender": "female",
+    "image": "/images/user1.jpg",
     "type": "B2C",
     "description": "Stressed executive",
     "wellbeingScore": 68,
@@ -23,17 +24,48 @@
       "steps": "3,200 steps",
       "energy": "Low"
     },
+    "dashboardData": {
+      "welcomeMessage": "Welcome back! Julie",
+      "greeting": "Keep your energy steady throughout the day.",
+      "recommendationOfTheDay": "Start your day with a protein-rich breakfast",
+      "todaysGoal": "Complete your daily walk",
+      "progress": {
+        "steps": { "count": 3200, "unit": "steps", "percentage": 55 },
+        "waterIntake": { "amount": 1.0, "unit": "L/day", "percentage": 40 },
+        "sleep": { "duration": "5h 10min", "quality": "Poor", "percentage": 30 }
+      },
+      "exploreSections": ["My Data", "Nutrition"],
+      "nutritionAdvice": "Include more fruits and vegetables.",
+      "sleepAdvice": "Improve sleep consistency.",
+      "activityAdvice": "Take 10-minute walks daily.",
+      "latestMeasurements": {
+        "steps": "3,200 steps",
+        "sleepDuration": "5h 10m"
+      },
+      "dnaSimulator": [
+        { "icon": "🧠", "title": "Stress Response", "description": "Elevated cortisol levels, practice relaxation techniques." },
+        { "icon": "💤", "title": "Sleep Quality", "description": "Light sleep, needs improvement." },
+        { "icon": "🏃‍♂️", "title": "Muscle Endurance", "description": "Below average, requires more activity." },
+        { "icon": "🔬", "title": "Detox Metabolism", "description": "Moderate enzyme activity." }
+      ]
+    },
     "dnaTraits": [
       { "trait": "Stress Response", "value": "Elevated" },
       { "trait": "Caffeine Sensitivity", "value": "High" },
       { "trait": "Sleep Rhythm", "value": "Irregular" }
-    ]
+    ],
+    "b2bDashboard": {
+      "avgScore": 68,
+      "energyDistribution": { "low": 35, "moderate": 50, "high": 15 },
+      "recommendationCompliance": "60%"
+    }
   },
   {
     "id": "karim",
     "name": "Karim",
     "age": 45,
     "gender": "male",
+    "image": "/images/user2.jpg",
     "type": "B2C",
     "description": "Irregular lifestyle",
     "wellbeingScore": 74,
@@ -53,17 +85,48 @@
       "steps": "5,600 steps",
       "energy": "Moderate"
     },
+    "dashboardData": {
+      "welcomeMessage": "Welcome back! Karim",
+      "greeting": "Hope your travels go well today!",
+      "recommendationOfTheDay": "Stretch and hydrate after travel",
+      "todaysGoal": "Keep active despite the busy schedule",
+      "progress": {
+        "steps": { "count": 5600, "unit": "steps", "percentage": 70 },
+        "waterIntake": { "amount": 1.2, "unit": "L/day", "percentage": 50 },
+        "sleep": { "duration": "6h 20min", "quality": "Fair", "percentage": 45 }
+      },
+      "exploreSections": ["My Data", "Activity"],
+      "nutritionAdvice": "Eat light meals before sleeping.",
+      "sleepAdvice": "Follow a relaxing bedtime routine.",
+      "activityAdvice": "Include stretching in your breaks.",
+      "latestMeasurements": {
+        "steps": "5,600 steps",
+        "sleepDuration": "6h 20m"
+      },
+      "dnaSimulator": [
+        { "icon": "🧠", "title": "Jet Lag Sensitivity", "description": "High sensitivity, adjust routines accordingly." },
+        { "icon": "💤", "title": "Sleep Disruption", "description": "Light interruptions, improving." },
+        { "icon": "🏃‍♂️", "title": "Muscle Recovery", "description": "Moderate rate, keep active." },
+        { "icon": "🔬", "title": "Fat Metabolism", "description": "Normal processing ability." }
+      ]
+    },
     "dnaTraits": [
       { "trait": "Fat Metabolism", "value": "Normal" },
       { "trait": "Jet Lag Sensitivity", "value": "High" },
       { "trait": "Stress Resilience", "value": "Average" }
-    ]
+    ],
+    "b2bDashboard": {
+      "avgScore": 74,
+      "energyDistribution": { "low": 25, "moderate": 55, "high": 20 },
+      "recommendationCompliance": "68%"
+    }
   },
   {
     "id": "marie",
     "name": "Marie",
     "age": 68,
     "gender": "female",
+    "image": "/images/user3.jpg",
     "type": "B2C",
     "description": "Active senior",
     "wellbeingScore": 91,
@@ -83,17 +146,48 @@
       "steps": "6,800 steps",
       "energy": "High"
     },
+    "dashboardData": {
+      "welcomeMessage": "Welcome back! Marie",
+      "greeting": "Your healthy lifestyle is inspiring!",
+      "recommendationOfTheDay": "Stay active with light exercises",
+      "todaysGoal": "Complete your daily walk",
+      "progress": {
+        "steps": { "count": 6800, "unit": "steps", "percentage": 90 },
+        "waterIntake": { "amount": 1.8, "unit": "L/day", "percentage": 75 },
+        "sleep": { "duration": "7h 40min", "quality": "Good", "percentage": 80 }
+      },
+      "exploreSections": ["My Data", "Activity"],
+      "nutritionAdvice": "Maintain balanced nutrition.",
+      "sleepAdvice": "Stick to your sleep schedule.",
+      "activityAdvice": "Try tai chi for balance and flexibility.",
+      "latestMeasurements": {
+        "steps": "6,800 steps",
+        "sleepDuration": "7h 40m"
+      },
+      "dnaSimulator": [
+        { "icon": "🧠", "title": "Cognitive Function", "description": "Strong memory retention." },
+        { "icon": "💤", "title": "Sleep Efficiency", "description": "Deep restful sleep cycles." },
+        { "icon": "🏃‍♂️", "title": "Muscle Strength", "description": "Good endurance." },
+        { "icon": "🔬", "title": "Inflammation Response", "description": "Low inflammation markers." }
+      ]
+    },
     "dnaTraits": [
       { "trait": "Bone Density", "value": "Good" },
       { "trait": "Sleep Quality", "value": "Excellent" },
       { "trait": "Inflammation Response", "value": "Low" }
-    ]
+    ],
+    "b2bDashboard": {
+      "avgScore": 91,
+      "energyDistribution": { "low": 10, "moderate": 40, "high": 50 },
+      "recommendationCompliance": "90%"
+    }
   },
   {
     "id": "lucas",
     "name": "Lucas",
     "age": 36,
     "gender": "male",
+    "image": "/images/user4.jpg",
     "type": "B2B",
     "description": "Corporate wellness contract",
     "wellbeingScore": 83,
@@ -113,6 +207,31 @@
       "steps": "7,100 steps",
       "energy": "Moderate-High"
     },
+    "dashboardData": {
+      "welcomeMessage": "Welcome back! Lucas",
+      "greeting": "Keep up the great work at your wellness program!",
+      "recommendationOfTheDay": "Stretch during breaks to improve circulation",
+      "todaysGoal": "Hit 7,500 steps",
+      "progress": {
+        "steps": { "count": 7100, "unit": "steps", "percentage": 95 },
+        "waterIntake": { "amount": 1.7, "unit": "L/day", "percentage": 70 },
+        "sleep": { "duration": "6h 55min", "quality": "Fair", "percentage": 55 }
+      },
+      "exploreSections": ["My Data", "Activity", "Nutrition"],
+      "nutritionAdvice": "Try more plant-based lunches.",
+      "sleepAdvice": "Wind down an hour before bedtime.",
+      "activityAdvice": "Take short stretching breaks.",
+      "latestMeasurements": {
+        "steps": "7,100 steps",
+        "sleepDuration": "6h 55m"
+      },
+      "dnaSimulator": [
+        { "icon": "🧠", "title": "Focus Tendency", "description": "Stable focus during work." },
+        { "icon": "💤", "title": "Sleep Cycles", "description": "Moderate quality with REM." },
+        { "icon": "🏃‍♂️", "title": "Muscle Recovery", "description": "Fast and efficient." },
+        { "icon": "🔬", "title": "Detox Metabolism", "description": "Enhanced toxin processing." }
+      ]
+    },
     "dnaTraits": [
       { "trait": "Muscle Recovery", "value": "Fast" },
       { "trait": "Focus Tendency", "value": "Stable" },
@@ -120,11 +239,7 @@
     ],
     "b2bDashboard": {
       "avgScore": 83,
-      "energyDistribution": {
-        "low": 10,
-        "moderate": 55,
-        "high": 35
-      },
+      "energyDistribution": { "low": 10, "moderate": 55, "high": 35 },
       "recommendationCompliance": "78%"
     }
   },
@@ -133,6 +248,7 @@
     "name": "Emma",
     "age": 40,
     "gender": "female",
+    "image": "/images/user5.jpg",
     "type": "B2B",
     "description": "Insurance client",
     "wellbeingScore": 76,
@@ -152,6 +268,31 @@
       "steps": "5,200 steps",
       "energy": "Moderate"
     },
+    "dashboardData": {
+      "welcomeMessage": "Welcome back! Emma",
+      "greeting": "It's great to see you again. Your health data is ready and waiting.",
+      "recommendationOfTheDay": "Drink a glass of water in 1 Hour",
+      "todaysGoal": "Complete your today's goal",
+      "progress": {
+        "steps": { "count": 5200, "unit": "steps", "percentage": 85 },
+        "waterIntake": { "amount": 1.5, "unit": "L/day", "percentage": 60 },
+        "sleep": { "duration": "6h 05min", "quality": "Fair", "percentage": 40 }
+      },
+      "exploreSections": ["My Data", "Nutrition"],
+      "nutritionAdvice": "Include Omega-3 rich foods.",
+      "sleepAdvice": "Aim for 7-8 hours nightly.",
+      "activityAdvice": "Take 10-minute breaks to move.",
+      "latestMeasurements": {
+        "steps": "5,432 steps",
+        "sleepDuration": "7h 30m"
+      },
+      "dnaSimulator": [
+        { "icon": "🧠", "title": "Cognitive Boost", "description": "Above average neuroplasticity. Quick adaptation in novel tasks." },
+        { "icon": "💤", "title": "Sleep Efficiency", "description": "REM cycles highly efficient. Recovery rate: optimal." },
+        { "icon": "🏃‍♂️", "title": "Fast-Twitch Muscle Density", "description": "Enhanced power burst capability. Ideal for sprints." },
+        { "icon": "🔬", "title": "Detox Metabolism", "description": "Elevated CYP450 enzyme activity. Toxin processing boosted." }
+      ]
+    },
     "dnaTraits": [
       { "trait": "Hydration Need", "value": "High" },
       { "trait": "Sleep Disruption", "value": "Likely" },
@@ -159,35 +300,8 @@
     ],
     "b2bDashboard": {
       "avgScore": 76,
-      "energyDistribution": {
-        "low": 20,
-        "moderate": 60,
-        "high": 20
-      },
+      "energyDistribution": { "low": 20, "moderate": 60, "high": 20 },
       "recommendationCompliance": "65%"
     }
-  },
-  {
-    "id": "admin",
-    "name": "Admin",
-    "role": "admin",
-    "type": "admin",
-    "description": "Admin user responsible for usage analytics and monitoring",
-    "usageStats": {
-      "sessionsPerProfile": {
-        "julie": 24,
-        "karim": 17,
-        "marie": 32,
-        "lucas": 21,
-        "emma": 18
-      },
-      "averageSessionDuration": "5m 12s",
-      "mostViewedSections": [
-        "Well-being Score",
-        "Recommendations",
-        "Connected Devices"
-      ]
-    },
-    "disclaimer": "100% simulated data"
   }
 ]

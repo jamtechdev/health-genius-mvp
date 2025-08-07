@@ -1,20 +1,18 @@
 import { NextResponse } from 'next/server';
-import { users } from '@/app/api/data/user';
-import userDetails from "../../user.json";
+import users from '../../user.json'; // Adjust path if needed
 
 export async function GET(request, { params }) {
-    const { id } = params;
-    const user = users.find(u => u.id === id);
-    const details = userDetails.find(u => u.id === id);
+  const { id } = params;
 
-    if (!user) {
-        return NextResponse.json({ message: 'User not found' }, { status: 404 });
-    }
-    // Optional: Exclude password or sensitive fields
-    const { password, ...safeUser } = user;
+  // Find the user by ID, excluding admins
+  const user = users.find(u => u.id === id && u.role !== 'admin');
 
-    return NextResponse.json({
-        ...safeUser,
-        profile: details?.profile || null
-    });
+  if (!user) {
+    return NextResponse.json(
+      { error: 'User not found or is an admin' },
+      { status: 404 }
+    );
+  }
+
+  return NextResponse.json(user);
 }

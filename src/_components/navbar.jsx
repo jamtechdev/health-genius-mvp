@@ -118,6 +118,9 @@ export default function Navbar() {
                                 </div>
                             </div>
                         </div>
+                        <button className="text-[#ffffff] bg-[#ca2a30] text-xl py-[6px] px-[10px] cursor-pointe icon-box">
+                           <i className="ph-fill ph-sign-out"></i>
+                        </button>
                     </div>
                 </div>
             </nav>

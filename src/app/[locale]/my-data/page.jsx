@@ -16,7 +16,7 @@ export default function () {
                   Steps Count
                 </h6>
                 <span className="text-[#fd8c25] text-4xl">
-                  <i class="ph-fill ph-person-simple-walk"></i>
+                  <i className="ph-fill ph-person-simple-walk"></i>
                 </span>
               </div>
 
@@ -47,7 +47,7 @@ export default function () {
                  Sleep Tracker
                 </h6>
                 <span className="text-[#3e88fb] text-4xl">
-                  <i class="ph-fill ph-moon"></i>
+                  <i className="ph-fill ph-moon"></i>
                 </span>
               </div>
 
@@ -75,7 +75,7 @@ export default function () {
                   Energy Level
                 </h6>
                 <span className="text-[#28ebcd] text-4xl">
-                  <i class="ph-fill ph-lightning"></i>
+                  <i className="ph-fill ph-lightning"></i>
                 </span>
               </div>
 
@@ -97,7 +97,7 @@ export default function () {
               <div className="mt-6 flex justify-center">
                 <button className="flex items-center gap-2 text-[#28ebcd] text-sm">
                   <span className="text-[#f5c03b] text-md">
-                    <i class="ph-fill ph-lightning"></i>
+                    <i className="ph-fill ph-lightning"></i>
                   </span>
                   System Online
                 </button>
@@ -111,7 +111,7 @@ export default function () {
                   Nutrition Summary
                 </h6>
                 <span className="text-[#5a3c8a] text-4xl">
-                  <i class="ph-fill ph-orange"></i>
+                  <i className="ph-fill ph-orange"></i>
                 </span>
               </div>
 
@@ -192,7 +192,7 @@ export default function () {
               <div className="mt-3">
                 <div className="flex items-center gap-2">
                   <span className="text-[#28ebcd] text-2xl leading-none">
-                    <i class="ph-fill ph-check-circle"></i>
+                    <i className="ph-fill ph-check-circle"></i>
                   </span>
                   <div className="flex justify-between w-full">
                     <label className="flex justify-between w-full items-center cursor-pointer">
@@ -211,7 +211,7 @@ export default function () {
                 </div>
                 <div className="flex items-center gap-2 mt-2">
                   <span className="text-[#ca2a30] text-2xl leading-none">
-                    <i class="ph-fill ph-x-circle"></i>
+                    <i className="ph-fill ph-x-circle"></i>
                   </span>
                   <div className="flex justify-between w-full">
                     <label className="flex justify-between w-full items-center cursor-pointer">
@@ -229,7 +229,7 @@ export default function () {
                 </div>
                 <div className="flex items-center gap-2 mt-2">
                   <span className="text-[#28ebcd] text-2xl leading-none">
-                    <i class="ph-fill ph-check-circle"></i>
+                    <i className="ph-fill ph-check-circle"></i>
                   </span>
                   <div className="flex justify-between w-full">
                     <label className="flex justify-between w-full items-center cursor-pointer">

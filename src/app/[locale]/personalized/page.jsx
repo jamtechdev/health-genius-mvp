@@ -58,7 +58,7 @@ export default function () {
                   <span className="bg-red-500/20 text-red-400 text-xs px-4 py-1 icon-box">
                     STRESS
                   </span>
-                  <span className="text-red-400 text-2xl">
+                  <span className="text-red-400 text-4xl">
                     <i className="ph-fill ph-person-simple-tai-chi"></i>
                   </span>
                 </div>
@@ -84,7 +84,7 @@ export default function () {
                   <span className="bg-green-500/20 text-green-400 text-xs px-4 py-1 icon-box">
                     FOCUS
                   </span>
-                  <span className="text-green-400 text-2xl">
+                  <span className="text-green-400 text-4xl">
                     <i className="ph-fill ph-user-focus"></i>
                   </span>
                 </div>
@@ -111,7 +111,7 @@ export default function () {
                   <span className="bg-purple-500/20 text-purple-400 text-xs px-4 py-1 icon-box">
                     SLEEP
                   </span>
-                  <span className="text-purple-400 text-2xl">
+                  <span className="text-purple-400 text-4xl">
                     <i className="ph-fill ph-moon"></i>
                   </span>
                 </div>

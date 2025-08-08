@@ -4,13 +4,16 @@ import { Link } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
-export default function Navbar() {
+export default function Navbar(props) {
+    const { id } = props;
     const locale = useLocale();
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const t = useTranslations();
+    const [user, setUser] = useState(null);
 
     const LANGUAGES = [
         { code: "en", label: t("languages.en") },
@@ -29,6 +32,33 @@ export default function Navbar() {
         const url = queryString ? `${newPathname}?${queryString}` : newPathname;
         router.push(url);
     };
+    const getUser = async (id) => {
+        try {
+            const res = await fetch(`/api/users/${id}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            if (!res.ok) {
+                throw new Error(`HTTP error! status: ${res.status}`);
+            }
+            const data = await res.json();
+            setUser(data);
+            console.log(data)
+        } catch (error) {
+            console.error('Error fetching users:', error);
+            return null;
+        } finally {
+        }
+    }
+    useEffect(() => {
+        let user = localStorage.getItem('user');
+        user = JSON.parse(user);
+        if (user) {
+            getUser(user?.id);
+        }
+    }, []);
     async function logout() {
         await fetch('/api/login', { method: 'GET' });
         window.location.href = `/${locale}/sign-in`;
@@ -98,19 +128,14 @@ export default function Navbar() {
                             <div className="flex items-center gap-2 cursor-pointer">
                                 <Link href={'/profile'}>
                                     <Image
-                                        src="/images/user-avatar.jpg"
+                                        src={user ? user?.image : "/images/user-avatar.jpg"}
                                         className="w-10 h-10 object-cover icon-box"
                                         width={100}
                                         height={100}
                                         alt="profile"
                                     />
                                 </Link>
-                                {/* <button
-                                    onClick={logout}
-                                    className="bg-transparent text-white font-semibold text-lg outline-none px-1 cursor-pointer"
-                                >
-                                    Logout
-                                </button> */}
+
                                 <div className="hidden">
                                     <h6 className="text-sm font-semibold">Lucas</h6>
                                     <p
@@ -119,7 +144,7 @@ export default function Navbar() {
                             </div>
                         </div>
                         <button onClick={logout} className="text-[#ffffff] bg-[#ca2a30] text-xl py-[6px] px-[10px] cursor-pointer icon-box">
-                           <i className="ph-fill ph-sign-out"></i>
+                            <i className="ph-fill ph-sign-out"></i>
                         </button>
                     </div>
                 </div>

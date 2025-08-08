@@ -2,9 +2,17 @@
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });              
+import HeartRateChart from "./charts/heart-chart";
+import RadialBarChart from "./charts/radial-chart-bar";
+import RunningScoreChart from "./charts/running-score-chart";
+import SleepQualityChart from "./charts/sleep-quality-chart";
+import EnergyLevelChart from "./charts/energy-level-chart";
+import DnaSimulatorChart from "./charts/dna-simulater-chart";
+import DailyVitaminsChart from "./charts/daily-vitamins";
+import DailySleepChart from "./charts/daily-sleep";
+import DailyActivityChart from "./charts/daily-activity";
 export default function Dashboard(props) {
-  const { id } = props;
+    const { id } = props;
     const t = useTranslations();
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -33,66 +41,60 @@ export default function Dashboard(props) {
     useEffect(() => {
         getUser();
     }, []);
-    const chartOptions = {
-        chart: {
-            height: 380,
-            type: 'radialBar',
-            offsetY: -20,
-            background: 'transparent',
-        },
-        plotOptions: {
-            radialBar: {
-                startAngle: -135,
-                endAngle: 135,
-                hollow: {
-                    background: 'transparent',
-                    size: '50%',
-                },
-                track: {
-                    background: 'transparent',
-                    strokeWidth: '100%',
-                },
-                dataLabels: {
-                    show: true,
-                    name: {
-                        fontSize: '12px',
-                        color: '#ffffff',
-                        fontFamily: 'Exo 2, sans-serif',
-                        offsetY: 40,
-                    },
-                    value: {
-                        fontSize: '30px',
-                        fontWeight: 700,
-                        color: '#ffffff',
-                        fontFamily: 'Exo 2, sans-serif',
-                        offsetY: 0,
-                        formatter: function (val) {
-                            return val + '%';
-                        },
-                    },
-                },
-            },
-        },
-        fill: {
-            type: 'gradient',
-            gradient: {
-                shade: 'dark',
-                type: 'horizontal',
-                shadeIntensity: 0.3,
-                gradientToColors: ['#00d9a6'],
-                inverseColors: false,
-                opacityFrom: 1,
-                opacityTo: 1,
-                stops: [0, 50, 100],
-                colorStops: [
-                    { offset: 0, color: '#005f73', opacity: 1 },
-                    { offset: 50, color: '#0a9396', opacity: 1 },
-                    { offset: 100, color: '#00d9a6', opacity: 1 },
-                ],
-            },
-        },
-        labels: ['Well being score'],
+    // daily chart data start 
+    const nutritionDaily = [
+        [
+            1800, 1900, 1750, 2000, 1850, 1950, 1800, 2100, 1950, 2000, 1850,
+            1900, 1880, 2000, 2050, 1980, 1900, 1820, 1920, 1950, 1980, 2000,
+        ],
+    ];
+    const nutritionCategories = Array.from({ length: 22 }, (_, i) => `${String(i + 1).padStart(2, "0")} Jan`);
+    const sleepDaily = [
+        [
+            7, 6.5, 8, 7.2, 6.8, 7.5, 8.1, 7.6, 6.9, 7.3, 7.4,
+            6.7, 7.8, 8.2, 7.9, 7.1, 6.5, 7.6, 7.3, 7.4, 7.2, 7.5,
+        ],
+    ];
+    const sleepCategories = Array.from({ length: 22 }, (_, i) => `${String(i + 1).padStart(2, "0")} Jan`);
+    const dailyActivities = [
+        4000, 4500, 5200, 6000, 5800, 6100, 7200, 6900, 7500, 7300, 7000,
+        6900, 6800, 7200, 7400, 7600, 7300, 7100, 7200, 7400, 7500, 7800,
+    ];
+    const dailyActivityCategories = Array.from({ length: 22 }, (_, i) => `${String(i + 1).padStart(2, "0")} Jan`);
+    // daily chart data end 
+
+    const heartRateData = {
+        bpm: [72, 75, 70, 80, 76, 74, 78, 73, 77, 75, 74, 72],
+        timestamps: [
+            "2025-08-01T09:00:00",
+            "2025-08-01T10:00:00",
+            "2025-08-01T11:00:00",
+            "2025-08-01T12:00:00",
+            "2025-08-01T13:00:00",
+            "2025-08-01T14:00:00",
+            "2025-08-01T15:00:00",
+            "2025-08-01T16:00:00",
+            "2025-08-01T17:00:00",
+            "2025-08-01T18:00:00",
+            "2025-08-01T19:00:00",
+            "2025-08-01T20:00:00",
+        ],
     };
+    const runningData = [30, 45, 20, 60, 40, 20, 50];
+    const runningCategories = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    const sleepData = [78, 85, 60, 90, 72, 88, 95];
+    const sleepDay = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    const energyData = [
+        { x: "Mon", y: [4, 7] },
+        { x: "Tue", y: [5, 8] },
+        { x: "Wed", y: [3, 6] },
+        { x: "Thu", y: [6, 9] },
+        { x: "Fri", y: [5, 8] },
+        { x: "Sat", y: [7, 9] },
+        { x: "Sun", y: [6, 8] },
+    ];
+    const series = [70, 55, 80, 65, 90];
+    const labels = ["Gene A", "Gene B", "Gene C", "Gene D", "Gene E"];
 
     if (loading) return <p>Loading...</p>
     return (
@@ -108,8 +110,7 @@ export default function Dashboard(props) {
                                 <p>{user?.dashboardData?.greeting}</p>
                             </div>
                             <div className="mt-6">
-                                <Chart options={chartOptions} series={[user?.wellbeingScore]} type="radialBar" height={380} />
-                                {/* <div id="total-health"></div> */}
+                                <RadialBarChart score={user?.wellbeingScore ?? 0} label="Well being score" />
                             </div>
                             <div
                                 className="mt-6 flex items-center gap-4 bg-[#001b31] icon-box w-fit text-white p-4">
@@ -211,7 +212,14 @@ export default function Dashboard(props) {
                                     <div className="text-right w-full md:w-fit">
                                         <div
                                             className="md:text-4xl text-2xl font-bold absolute top-6 right-6 md:static">{user?.wellbeingScore}</div>
-                                        <div id="nutrition" className="-mt-12 -mb-10"></div>
+                                        <div className="-mt-12 -mb-10">
+                                            <DailyVitaminsChart
+                                                series={nutritionDaily}
+                                                categories={nutritionCategories}
+                                                colors={["#FF9F1C"]}
+                                                name={["Calories Intake (kcal)"]}
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -230,9 +238,18 @@ export default function Dashboard(props) {
                                     <div className="text-right w-full md:w-fit">
                                         <div
                                             className="md:text-4xl text-2xl font-bold absolute top-6 right-6 md:static">
-                                                {user?.dashboardData?.latestMeasurements?.sleepDuration}
-                                            </div>
-                                        <div id="sleep" className="-mt-12 -mb-10"></div>
+                                            {user?.dashboardData?.latestMeasurements?.sleepDuration}
+                                        </div>
+                                        <div className="-mt-12 -mb-10">
+                                            <DailySleepChart
+                                                series={sleepDaily}
+                                                categories={sleepCategories}
+                                                colors={["#3ABEFF"]}
+                                                names={["Sleep Duration (hrs)"]}
+                                                yaxisMin={5}
+                                                yaxisMax={10}
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -246,16 +263,18 @@ export default function Dashboard(props) {
                                         </div>
                                         <h3
                                             className="md:text-3xl text-2xl font-bold uppercase">
-                                                {t("activity")}
-                                                </h3>
+                                            {t("activity")}
+                                        </h3>
                                         <p>{user?.recommendations?.activity}</p>
                                     </div>
                                     <div className="text-right w-full md:w-fit">
                                         <div
                                             className="md:text-4xl text-2xl font-bold absolute top-6 right-6 md:static">
-                                             {user?.dashboardData?.latestMeasurements?.steps}
-                                            </div>
-                                        <div id="activity" className="-mt-12 -mb-10"></div>
+                                            {user?.dashboardData?.latestMeasurements?.steps}
+                                        </div>
+                                        <div className="mt-12 mb-10">
+                                            <DailyActivityChart data={dailyActivities} categories={dailyActivityCategories} />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -265,28 +284,29 @@ export default function Dashboard(props) {
                         <div
                             className="col-span-12 lg:col-span-6 xl:col-span-6 bg-[#003d5cE6] card p-6">
                             <h3 className="text-2xl font-bold mb-4">{t("heartRate")}</h3>
-                            <div id="heart-rate"></div>
+                            <HeartRateChart data={heartRateData} />
+                            {/* <div id="heart-rate"></div> */}
                         </div>
 
                         {/* <!-- Running Score Chart --> */}
                         <div
                             className="col-span-12 lg:col-span-6 xl:col-span-6 bg-[#003d5cE6] card p-6">
                             <h3 className="text-2xl font-bold mb-4">{t("stepCount")}</h3>
-                            <div id="running-score"></div>
+                            <RunningScoreChart data={runningData} categories={runningCategories} />
                         </div>
 
                         {/* <!-- Sleep quality Chart --> */}
                         <div
                             className="col-span-12 lg:col-span-6 xl:col-span-6 bg-[#003d5cE6] card p-6">
                             <h3 className="text-2xl font-bold mb-4">{t("sleepQuality")}</h3>
-                            <div id="sleep-quality"></div>
+                            <SleepQualityChart data={sleepData} categories={sleepDay} />
                         </div>
 
                         {/* <!-- Energy quality Chart --> */}
                         <div
                             className="col-span-12 lg:col-span-6 xl:col-span-6 bg-[#003d5cE6] card p-6">
                             <h3 className="text-2xl font-bold mb-4">{t("energyLevel")}</h3>
-                            <div id="energy-level"></div>
+                            <EnergyLevelChart data={energyData} />
                         </div>
 
                         {/* <!-- DNA Simulator Chart --> */}
@@ -295,7 +315,7 @@ export default function Dashboard(props) {
                             <h3 className="text-2xl font-bold mb-4">{t("DNASimulator")}</h3>
                             <div className="grid grid-cols-12">
                                 <div className="col-span-12 lg:col-span-6 xl:col-span-6">
-                                    <div id="dna-simulator"></div>
+                                    <DnaSimulatorChart series={series} labels={labels} />
                                 </div>
                                 <div className="col-span-12 lg:col-span-6 xl:col-span-6">
                                     <div

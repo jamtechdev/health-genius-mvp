@@ -16,7 +16,7 @@ export default function SignIn() {
             return;
         }
         localStorage.setItem('user', JSON.stringify(result.user));
-        router.push('/profile');
+        router.push(`/profile/${result?.user?.id}`);
     };
     return (
         <div className="min-h-screen flex items-center justify-center relative">

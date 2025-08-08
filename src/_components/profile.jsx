@@ -62,8 +62,8 @@ export default function Profile(props) {
                             className="card group relative flex flex-col items-center text-center shadow-lg rounded-xl overflow-hidden transition-shadow hover:shadow-2xl cursor-pointer !p-0 col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-3 xl:col-span-2">
                             <div className="w-full overflow-hidden">
                                 <img
-                                    src="https://randomuser.me/api/portraits/women/44.jpg"
-                                    alt="Julie"
+                                    src={user?.image}
+                                    alt={user?.name}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                             </div>
                             <div

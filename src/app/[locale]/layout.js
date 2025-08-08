@@ -22,7 +22,7 @@ export default async function LocaleLayout({ children, params }) {
     return (
         <NextIntlClientProvider locale={locale} messages={messages}>
             <AppProvider>
-                <Script async src="https://cdn.jsdelivr.net/npm/apexcharts" />
+
                 {/* <Script id="google-analytics">
                     {`
             window.dataLayer = window.dataLayer || [];
